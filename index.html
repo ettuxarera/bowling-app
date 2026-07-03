@@ -5,9 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>ボウリング</title>
 
-  <!-- ホーム画面アイコン -->
-  <link rel="apple-touch-icon" href="bowling_icon_180.png">
-  <link rel="icon" href="bowling_icon_180.png">
+  <!-- ホーム画面アイコン（絶対URLで明示・複数サイズ指定） -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://ettuxarera.github.io/bowling-app/bowling_icon_180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="https://ettuxarera.github.io/bowling-app/bowling_icon_180.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://ettuxarera.github.io/bowling-app/bowling_icon_180.png">
+  <link rel="apple-touch-icon" href="https://ettuxarera.github.io/bowling-app/bowling_icon_180.png">
+  <link rel="apple-touch-icon-precomposed" href="https://ettuxarera.github.io/bowling-app/bowling_icon_180.png">
+  <link rel="icon" type="image/png" href="https://ettuxarera.github.io/bowling-app/bowling_icon_180.png">
 
   <!-- アプリらしさの設定 -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -16,20 +20,20 @@
   <meta name="apple-mobile-web-app-title" content="ボウリング">
   <meta name="theme-color" content="#1E2761">
 
-  <!-- 転送先（GASアプリ本体） -->
-  <script>
-    var APP_URL = "https://script.google.com/macros/s/AKfycbzOl7Iv7x35tKZy4oG927ubrreWK7zVuDFKPRMc30AgVDZe8k-NfKwPuluEJlAV8JMqmA/exec";
-    window.location.replace(APP_URL);
-  </script>
-  <meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbzOl7Iv7x35tKZy4oG927ubrreWK7zVuDFKPRMc30AgVDZe8k-NfKwPuluEJlAV8JMqmA/exec">
-
   <style>
-    body{margin:0;height:100vh;display:flex;align-items:center;justify-content:center;
-      background:#1E2761;color:#fff;font-family:sans-serif;font-size:18px;}
+    body{margin:0;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:#1E2761;color:#fff;font-family:sans-serif;font-size:18px;text-align:center;gap:16px;}
+    a{color:#FFD54F;font-weight:bold;font-size:20px;text-decoration:none;padding:12px 20px;border:2px solid #FFD54F;border-radius:10px;}
   </style>
 </head>
 <body>
-  🎳 ボウリングを開いています…
-  <a href="https://script.google.com/macros/s/AKfycbzOl7Iv7x35tKZy4oG927ubrreWK7zVuDFKPRMc30AgVDZe8k-NfKwPuluEJlAV8JMqmA/exec" style="color:#FFD54F;margin-left:8px;">開かない場合はこちら</a>
+  <div>🎳 ボウリング</div>
+  <a href="https://script.google.com/macros/s/AKfycbzOl7Iv7x35tKZy4oG927ubrreWK7zVuDFKPRMc30AgVDZe8k-NfKwPuluEJlAV8JMqmA/exec" id="go">アプリを開く</a>
+  <script>
+    var APP_URL = "https://script.google.com/macros/s/AKfycbzOl7Iv7x35tKZy4oG927ubrreWK7zVuDFKPRMc30AgVDZe8k-NfKwPuluEJlAV8JMqmA/exec";
+    // ホーム画面（スタンドアロン）から起動したときだけ自動転送する
+    var standalone = (window.navigator.standalone === true) || (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+    if (standalone) { window.location.replace(APP_URL); }
+  </script>
 </body>
 </html>
